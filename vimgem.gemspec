@@ -17,6 +17,5 @@ Gem::Specification.new do |s|
   s.executables = ["vimgem"]
 
   s.files        = `git ls-files`.split("\n")
-  s.executables  = `git ls-files`.split("\n").select{|f| f =~ /^bin/}
   s.require_path = 'lib'
 end

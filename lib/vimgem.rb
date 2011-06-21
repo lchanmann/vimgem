@@ -1,8 +1,23 @@
+require 'rbconfig'
+
 module Vimgem
-  def self.browse(gem_name)
+  extend self
+
+  def browse(gem)
+    return unless gem
+    spec = get_gemspec(gem)
+    exec_vim spec.full_gem_path
+  end
+
+  def get_gemspec(gem)
     matches = Gem.source_index.find_name(gem_name)
-    exit if matches.empty?
-    spec = matches.first
-    `gvim #{spec.full_gem_path}`
+    matches.first
+  end
+
+  def exec_vim(path)
+    case Config::CONFIG['target_os'].to_sym
+    when :linux
+      `gvim #{spec.full_gem_path}`
+    end
   end
 end

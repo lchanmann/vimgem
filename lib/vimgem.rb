@@ -6,7 +6,7 @@ module Vimgem
   def browse(gem)
     return unless gem
     spec = get_gemspec(gem)
-    exec_vim spec.full_gem_path
+    exec_vim spec.full_gem_path if spec
   end
 
   def get_gemspec(gem)

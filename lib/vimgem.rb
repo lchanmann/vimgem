@@ -1,5 +1,3 @@
-require 'rbconfig'
-
 module Vimgem
   extend self
 
@@ -15,9 +13,11 @@ module Vimgem
   end
 
   def exec_vim(path)
-    case Config::CONFIG['target_os'].to_sym
-    when :linux
+    case RUBY_PLATFORM
+    when /linux/, /mswin/
       `gvim #{path}`
+    when /darwin/
+      `open -a macvim #{path}`
     end
   end
 end

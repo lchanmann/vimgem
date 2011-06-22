@@ -4,12 +4,14 @@ Browse your favorite gem source code in Vim.
 
 ## Installation
 
-  gem install vimgem
+    gem install vimgem
 
 ## Usage
 
-  vimgem gem_name
+    vimgem gem_name
 
 ### Example
 
-  vimgem rails
+    vimgem rails
+
+Enjoy!!!

@@ -10,14 +10,14 @@ module Vimgem
   end
 
   def get_gemspec(gem)
-    matches = Gem.source_index.find_name(gem_name)
+    matches = Gem.source_index.find_name(gem)
     matches.first
   end
 
   def exec_vim(path)
     case Config::CONFIG['target_os'].to_sym
     when :linux
-      `gvim #{spec.full_gem_path}`
+      `gvim #{path}`
     end
   end
 end
